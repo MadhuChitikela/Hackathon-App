@@ -1216,179 +1216,104 @@ def page_video():
     st.markdown('</div>', unsafe_allow_html=True)
 
 def page_live():
-    """Live detection page with multiple camera source options (browser/local/RTSP)."""
+    """Live webcam page - browser camera for hosting compatibility."""
     st.markdown('<div class="main-card">', unsafe_allow_html=True)
-    st.markdown('<h2 style="color: #00d4ff;">🔴 Live Detection (Browser / Local / CCTV)</h2>', unsafe_allow_html=True)
-
+    st.markdown('<h2 style="color: #00d4ff;">🔴 Live Webcam</h2>', unsafe_allow_html=True)
+    
     st.markdown("""
-    <div style="padding: 20px; margin-bottom: 15px;">
-        Use **Browser Camera** for front/back camera from your device (recommended for web).
-        Use **Local Webcam** for server-side camera (only works when Streamlit runs on the same machine with a camera).
-        Enter an **RTSP/HTTP** stream URL for CCTV (experimental; needs network access and correct stream).
+    <div style="padding: 30px; text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%); border-radius: 15px; margin: 20px 0;">
+        <h3 style="color: #00d4ff; font-size: 28px; margin-bottom: 20px;">📹 Live Webcam Feed</h3>
+        <p style="color: rgba(200, 230, 255, 0.9); font-size: 18px; margin-bottom: 30px;">
+            Connect your webcam for live video feed (works in browser - perfect for hosting)
+        </p>
     </div>
     """, unsafe_allow_html=True)
-
-    if st.session_state.model_obj is None:
-        st.warning("⚠️ No model loaded. Please load a model on the Home page first.")
-        st.info("💡 Load a model to enable live detection capabilities.")
+    
+    # Camera source selection
+    source = st.radio(
+        "Select Camera Source:",
+        ["Browser Camera (Recommended for Web)", "CCTV (Coming Soon)"],
+        key="camera_source"
+    )
+    
+    # CCTV placeholder
+    if source == "CCTV (Coming Soon)":
+        st.markdown("""
+        <div style="background: rgba(255, 193, 7, 0.1); border: 2px solid rgba(255, 193, 7, 0.5); 
+                    border-radius: 15px; padding: 40px; text-align: center; margin: 20px 0;">
+            <div style="font-size: 64px; margin-bottom: 20px;">📹</div>
+            <h3 style="color: #ffc107; margin-bottom: 15px;">CCTV Integration</h3>
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 18px;">
+                CCTV camera integration will be available soon. Stay tuned!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
         return
-
-    source = st.radio("Select camera source:", ("Browser Camera (recommended)", "Local Webcam (server)", "RTSP / CCTV Stream"), horizontal=True)
-
-    col_left, col_right = st.columns([2, 1])
-    with col_left:
-        run_detection_toggle = st.checkbox("Run detection on frames (may be slower)", value=False)
-    with col_right:
-        confidence = st.slider("Confidence threshold", 0.0, 1.0, float(st.session_state.confidence_threshold), step=0.01)
-        st.session_state.confidence_threshold = confidence
-
-    # RTSP input
-    rtsp_url = ""
-    if source == "RTSP / CCTV Stream":
-        rtsp_url = st.text_input("Enter RTSP / HTTP stream URL (e.g. rtsp://user:pass@192.168.1.10:554/stream)")
-
-    # Start / Stop controls
-    start_col, stop_col = st.columns(2)
-    with start_col:
-        if st.button("▶️ START LIVE", key="live_start", use_container_width=True, type="primary"):
+    
+    # Start/Stop buttons
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("▶️ START WEBCAM", key="start_webcam", use_container_width=True, type="primary"):
             st.session_state.live_detection = True
-            st.session_state.live_source = source
-            st.session_state.live_rtsp = rtsp_url
-            st.success("🟢 Live started")
+            st.success("🟢 Webcam started!")
             st.rerun()
-    with stop_col:
-        if st.button("⏹️ STOP LIVE", key="live_stop", use_container_width=True):
+    
+    with col2:
+        if st.button("⏹️ STOP WEBCAM", key="stop_webcam", use_container_width=True):
             st.session_state.live_detection = False
-            st.success("🔴 Live stopped")
+            st.info("🔴 Webcam stopped.")
             st.rerun()
-
-    # If not running, show status and return
-    if not st.session_state.get('live_detection', False):
-        st.info("⏸️ Live stopped — click START LIVE to begin.")
-        st.markdown('</div>', unsafe_allow_html=True)
-        return
-
-    # Placeholder for frames and stats
-    frame_placeholder = st.empty()
-    stats_placeholder = st.empty()
-
-    # Browser camera approach (works in user's browser; best for front camera)
-    if source == "Browser Camera (recommended)":
-        st.info("Using browser camera — grant permission when prompted.")
-        # We will poll camera_input every loop iteration
+    
+    # Show status
+    if st.session_state.get('live_detection', False):
+        st.markdown("""
+        <div style="background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.3); 
+                    border-radius: 10px; padding: 15px; margin: 15px 0; text-align: center;">
+            <p style="color: #00ff88; margin: 0; font-weight: 600;">
+                🟢 <strong>Webcam Active</strong> - Camera feed is live
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div style="background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); 
+                    border-radius: 10px; padding: 15px; margin: 15px 0; text-align: center;">
+            <p style="color: #ffc107; margin: 0;">
+                ⏸️ <strong>Webcam Stopped</strong> - Click "START WEBCAM" to begin
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Browser camera - works for hosting (no detection, just webcam feed)
+    if st.session_state.get('live_detection', False):
+        frame_placeholder = st.empty()
+        
         try:
-            import time
-            loop_count = 0
-            # Limit per-run iterations to avoid blocking server too long
-            while st.session_state.get('live_detection', False) and loop_count < 300:
-                img_file = st.camera_input("Camera", key=f"cam_input_{loop_count}")
-                if img_file is not None:
-                    try:
-                        pil_img = Image.open(img_file).convert("RGB")
-                        if run_detection_toggle:
-                            dets = run_inference_on_pil(st.session_state.model_obj, pil_img, confidence_threshold=st.session_state.confidence_threshold, fast_mode=True)
-                            annotated = draw_detections_on_pil(pil_img.copy(), dets)
-                            frame_placeholder.image(annotated, caption="🔍 Live Detection (browser)", use_container_width=True)
-                            stats_placeholder.markdown(f"**Objects:** {len(dets)}")
-                        else:
-                            frame_placeholder.image(pil_img, caption="📸 Camera Snapshot (no detection)", use_container_width=True)
-                            stats_placeholder.info("Detection is off — enable 'Run detection on frames' to annotate frames.")
-                    except Exception as e:
-                        frame_placeholder.error(f"Error processing camera frame: {e}")
-                else:
-                    frame_placeholder.info("Waiting for camera snapshot... (grant permission if requested)")
-                loop_count += 1
-                # small sleep to avoid hot loop
-                time.sleep(0.15)
-
-                # keep iterating until user stops; Streamlit will break or rerun if state changes
-            # if loop ended naturally, we ensure the live flag stays consistent
-            if not st.session_state.get('live_detection', False):
-                stats_placeholder.info("Live stopped.")
+            # Use browser camera input - works in hosted environments
+            camera_image = st.camera_input(
+                "Live Webcam Feed",
+                key="live_camera",
+                help="Your webcam feed will appear here. Grant camera permission when prompted."
+            )
+            
+            if camera_image is not None:
+                # Just display the webcam feed - no detection needed
+                pil_img = Image.open(camera_image).convert("RGB")
+                frame_placeholder.image(pil_img, caption="📹 LIVE WEBCAM", channels="RGB", use_container_width=True)
+                
+                # Auto-refresh for continuous feed
+                if st.session_state.get('live_detection', False):
+                    st.rerun()
             else:
-                # rerun to refresh UI and bind new widgets
-                st.rerun()
+                frame_placeholder.info("👆 Click the camera button above to start webcam feed. Grant permission when prompted.")
+                
         except Exception as e:
-            frame_placeholder.error(f"Live browser camera failed: {e}")
-            st.session_state.live_detection = False
-
-    # Local webcam (server-side OpenCV)
-    elif source == "Local Webcam (server)":
-        st.info("Using local webcam via OpenCV on the server. This only works when the server has direct access to a camera.")
-        try:
-            import cv2
-            cap = cv2.VideoCapture(0, cv2.CAP_DSHOW) if os.name == 'nt' else cv2.VideoCapture(0)
-            if not cap.isOpened():
-                frame_placeholder.error("Cannot open local webcam. Check camera connection and permissions on the host running this Streamlit app.")
-                st.session_state.live_detection = False
-            else:
-                # set smaller resolution for speed
-                cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-                cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-                cap.set(cv2.CAP_PROP_FPS, 15)
-                try:
-                    import time
-                    while st.session_state.get('live_detection', False):
-                        ret, frame = cap.read()
-                        if not ret:
-                            break
-                        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                        pil_img = Image.fromarray(frame_rgb)
-                        if run_detection_toggle:
-                            dets = run_inference_on_pil(st.session_state.model_obj, pil_img, confidence_threshold=st.session_state.confidence_threshold, fast_mode=True)
-                            annotated = draw_detections_on_pil(pil_img.copy(), dets)
-                            frame_placeholder.image(annotated, caption="🔍 Live Detection (server webcam)", use_container_width=True)
-                            stats_placeholder.markdown(f"**Objects:** {len(dets)}")
-                        else:
-                            frame_placeholder.image(pil_img, caption="📸 Local Webcam (no detection)", use_container_width=True)
-                            stats_placeholder.info("Detection is off — enable 'Run detection on frames' to annotate frames.")
-                        time.sleep(0.05)
-                    cap.release()
-                    st.rerun()
-                except Exception as e:
-                    cap.release()
-                    frame_placeholder.error(f"Error during local webcam capture: {e}")
-                    st.session_state.live_detection = False
-        except ImportError:
-            frame_placeholder.error("OpenCV (cv2) is required for local webcam. Install with: pip install opencv-python")
-            st.session_state.live_detection = False
-
-    # RTSP / CCTV stream
-    elif source == "RTSP / CCTV Stream":
-        if not rtsp_url:
-            frame_placeholder.info("Enter an RTSP/HTTP stream URL above to connect.")
-        else:
-            st.info("Connecting to CCTV/RTSP stream. This requires network access and correct URL/credentials.")
-            try:
-                import cv2, time
-                cap = cv2.VideoCapture(rtsp_url)
-                if not cap.isOpened():
-                    frame_placeholder.error("Failed to open stream. Confirm the URL and network access.")
-                    st.session_state.live_detection = False
-                else:
-                    while st.session_state.get('live_detection', False):
-                        ret, frame = cap.read()
-                        if not ret:
-                            frame_placeholder.info("No frame from stream (end of stream or temporary network issue).")
-                            break
-                        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                        pil_img = Image.fromarray(frame_rgb)
-                        if run_detection_toggle:
-                            dets = run_inference_on_pil(st.session_state.model_obj, pil_img, confidence_threshold=st.session_state.confidence_threshold, fast_mode=True)
-                            annotated = draw_detections_on_pil(pil_img.copy(), dets)
-                            frame_placeholder.image(annotated, caption="🔍 CCTV Live Detection", use_container_width=True)
-                            stats_placeholder.markdown(f"**Objects:** {len(dets)}")
-                        else:
-                            frame_placeholder.image(pil_img, caption="📸 CCTV Frame (no detection)", use_container_width=True)
-                            stats_placeholder.info("Detection is off — enable 'Run detection on frames' to annotate frames.")
-                        time.sleep(0.02)
-                    cap.release()
-                    st.rerun()
-            except Exception as e:
-                frame_placeholder.error(f"Error connecting to stream: {e}")
-                st.session_state.live_detection = False
-
+            # Silent error handling for hosting
+            frame_placeholder.info("💡 Please grant camera permission to start webcam feed.")
+            if st.session_state.get('live_detection', False):
+                st.rerun()
+    
     st.markdown('</div>', unsafe_allow_html=True)
 
 def page_about():
