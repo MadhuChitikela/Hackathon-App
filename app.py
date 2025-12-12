@@ -314,8 +314,14 @@ def try_load_ultralytics_model(path: Optional[str] = None):
     """Try to load a YOLO model from the given path."""
     try:
         from ultralytics import YOLO
+    except ImportError as e:
+        return None, f"Ultralytics package not installed. Please install with: pip install ultralytics"
     except Exception as e:
-        return None, f"Ultralytics not installed: {e}"
+        # Handle system library errors gracefully
+        error_msg = str(e)
+        if "libGL" in error_msg or "shared object" in error_msg:
+            return None, "System libraries missing. Try installing: pip install opencv-python-headless"
+        return None, f"Error loading Ultralytics: {error_msg}"
 
     if path:
         p = Path(path)
@@ -335,7 +341,12 @@ def load_pretrained_yolov8n():
         from ultralytics import YOLO
         model = YOLO("yolov8n.pt")
         return model, None
+    except ImportError as e:
+        return None, f"Ultralytics package not installed. Please install with: pip install ultralytics"
     except Exception as e:
+        error_msg = str(e)
+        if "libGL" in error_msg or "shared object" in error_msg:
+            return None, "System libraries missing. Try installing: pip install opencv-python-headless"
         return None, f"Failed to load pretrained yolov8n: {e}"
 
 def draw_detections_on_pil(image: Image.Image, detections: list):
@@ -493,11 +504,20 @@ if "live_source" not in st.session_state:
 if "live_rtsp" not in st.session_state:
     st.session_state.live_rtsp = None
 
-# Try to pre-load model
+# Try to pre-load model (with better error handling for deployment)
 if st.session_state.model_obj is None and st.session_state.model_msg is None:
-    model_obj, msg = try_load_ultralytics_model(MODEL_PATH)
-    st.session_state.model_obj = model_obj
-    st.session_state.model_msg = msg
+    try:
+        model_obj, msg = try_load_ultralytics_model(MODEL_PATH)
+        st.session_state.model_obj = model_obj
+        st.session_state.model_msg = msg
+    except Exception as e:
+        # Handle any unexpected errors during model loading
+        st.session_state.model_obj = None
+        error_msg = str(e)
+        if "libGL" in error_msg or "shared object" in error_msg:
+            st.session_state.model_msg = "System libraries missing. Install opencv-python-headless for cloud deployment."
+        else:
+            st.session_state.model_msg = f"Error: {error_msg}"
 
 # ---------- Navigation ----------
 st.markdown("""
@@ -680,7 +700,12 @@ def page_home():
                     st.rerun()
         
         if st.session_state.model_msg:
-            st.error(f"Error: {st.session_state.model_msg}")
+            error_msg = st.session_state.model_msg
+            if "libGL" in error_msg or "shared object" in error_msg or "opencv-python-headless" in error_msg:
+                st.error(f"⚠️ Deployment Error: {error_msg}")
+                st.info("💡 **For Streamlit Cloud deployment:** Make sure your `requirements.txt` includes `opencv-python-headless` instead of `opencv-python`")
+            else:
+                st.error(f"Error: {error_msg}")
     else:
         st.markdown(
             '<div class="model-status success" style="text-align: center; padding: 20px;">✅ Model loaded and ready</div>',
@@ -921,7 +946,17 @@ def page_video():
             else:
                 with st.spinner("🎬 Processing video and generating annotated output (this may take a while)..."):
                     try:
-                        import cv2
+                        try:
+                            import cv2
+                        except ImportError:
+                            st.error("❌ OpenCV not installed. Install with: pip install opencv-python-headless")
+                            raise
+                        except Exception as e:
+                            if "libGL" in str(e) or "shared object" in str(e):
+                                st.error("❌ System libraries missing. Install: pip install opencv-python-headless")
+                            else:
+                                st.error(f"❌ OpenCV error: {e}")
+                            raise
                         
                         # Run detection on video and save annotated video
                         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -1083,7 +1118,17 @@ def page_video():
                         else:
                             # Fallback: Create video manually from frames
                             st.info("📹 Creating annotated video from frames...")
-                            cap = cv2.VideoCapture(str(t.name))
+                            try:
+                                cap = cv2.VideoCapture(str(t.name))
+                                if not cap.isOpened():
+                                    st.error("❌ Cannot open video file for processing.")
+                                    st.markdown('</div>', unsafe_allow_html=True)
+                                    return
+                            except Exception as e:
+                                st.error(f"❌ Error opening video: {e}")
+                                st.markdown('</div>', unsafe_allow_html=True)
+                                return
+                            
                             fps = int(cap.get(cv2.CAP_PROP_FPS)) or 30
                             width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
                             height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
