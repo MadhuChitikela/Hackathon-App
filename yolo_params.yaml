@@ -1,0 +1,6 @@
+train: C:/Users/chiti/OneDrive/Desktop/Hackathon/datasets/safety_dataset/images/train
+val:   C:/Users/chiti/OneDrive/Desktop/Hackathon/datasets/safety_dataset/images/val
+test:  C:/Users/chiti/OneDrive/Desktop/Hackathon/datasets/safety_dataset/images/test
+
+nc: 7
+names: ['OxygenTank','NitrogenTank','FirstAidBox','FireAlarm','SafetySwitchPanel','EmergencyPhone','FireExtinguisher']

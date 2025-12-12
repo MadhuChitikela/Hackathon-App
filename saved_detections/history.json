@@ -1,0 +1,516 @@
+[
+  {
+    "type": "image",
+    "file": "saved_detections/img_1765475447393.png",
+    "objects": [
+      "NitrogenTank \u2014 0.95",
+      "NitrogenTank \u2014 0.90",
+      "FirstAidBox \u2014 0.68"
+    ],
+    "ts": 1765475447393
+  },
+  {
+    "timestamp": "2025-12-12T00:49:02.925303",
+    "file_name": "Screenshot 2025-12-11 165129.png",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\det_Screenshot 2025-12-11 165129_20251212_004902.jpg",
+    "detections": [
+      {
+        "bbox": [
+          119,
+          125,
+          355,
+          263
+        ],
+        "conf": 0.9681812524795532,
+        "label": "FirstAidBox"
+      },
+      {
+        "bbox": [
+          612,
+          430,
+          840,
+          693
+        ],
+        "conf": 0.7032040357589722,
+        "label": "OxygenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T01:02:06.195219",
+    "file_name": "Screenshot 2025-12-11 165129.png",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\det_Screenshot 2025-12-11 165129_20251212_010206.jpg",
+    "detections": [
+      {
+        "bbox": [
+          119,
+          125,
+          355,
+          263
+        ],
+        "conf": 0.9681812524795532,
+        "label": "FirstAidBox"
+      },
+      {
+        "bbox": [
+          612,
+          430,
+          840,
+          693
+        ],
+        "conf": 0.7032040357589722,
+        "label": "OxygenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T01:02:37.531822",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_010237.jpg",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T01:11:59.908701",
+    "file_name": "Screenshot 2025-12-11 165129.png",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\det_Screenshot 2025-12-11 165129_20251212_011159.jpg",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\det_Screenshot 2025-12-11 165129_20251212_011159.jpg",
+    "file_type": "image",
+    "detections": [
+      {
+        "bbox": [
+          119,
+          125,
+          355,
+          263
+        ],
+        "conf": 0.9681812524795532,
+        "label": "FirstAidBox"
+      },
+      {
+        "bbox": [
+          612,
+          430,
+          840,
+          693
+        ],
+        "conf": 0.7032040357589722,
+        "label": "OxygenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T01:38:10.270559",
+    "file_name": "Screenshot 2025-12-11 165129.png",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\det_Screenshot 2025-12-11 165129_20251212_013810.jpg",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\det_Screenshot 2025-12-11 165129_20251212_013810.jpg",
+    "file_type": "image",
+    "detections": [
+      {
+        "bbox": [
+          119,
+          125,
+          355,
+          263
+        ],
+        "conf": 0.9681812524795532,
+        "label": "FirstAidBox"
+      },
+      {
+        "bbox": [
+          612,
+          430,
+          840,
+          693
+        ],
+        "conf": 0.7032040357589722,
+        "label": "OxygenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T01:38:35.856336",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_013823.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_013823.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T02:33:56.939989",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_023342.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_023342.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T02:43:29.915830",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_024319.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_024319.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T02:58:19.360762",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_025809.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_025809.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T03:03:41.724966",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_030331.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_030331.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T03:18:55.134260",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_031845.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_031845.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T03:20:31.723199",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_032017.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_032017.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T03:26:20.198733",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_032609.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_032609.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T07:35:10.417462",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_073450.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_073450.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T07:46:56.305286",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_074642.mp4",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_074642.mp4",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T07:51:34.194197",
+    "file_name": "Screenshot 2025-12-11 165129.png",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\det_Screenshot 2025-12-11 165129_20251212_075134.jpg",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\det_Screenshot 2025-12-11 165129_20251212_075134.jpg",
+    "file_type": "image",
+    "detections": [
+      {
+        "bbox": [
+          119,
+          125,
+          355,
+          263
+        ],
+        "conf": 0.9681812524795532,
+        "label": "FirstAidBox"
+      },
+      {
+        "bbox": [
+          612,
+          430,
+          840,
+          693
+        ],
+        "conf": 0.7032040357589722,
+        "label": "OxygenTank"
+      }
+    ],
+    "count": 2
+  },
+  {
+    "timestamp": "2025-12-12T07:52:02.613348",
+    "file_name": "WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3.mp4",
+    "file_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_075147.avi",
+    "image_path": "C:\\Users\\chiti\\OneDrive\\Desktop\\Hackathon\\scripts\\Hackathon2_scripts\\saved_detections\\video_det_WhatsApp Video 2025-12-08 at 22.11.04_7d8564a3_20251212_075147.avi",
+    "file_type": "video",
+    "detections": [
+      {
+        "bbox": [
+          83,
+          0,
+          438,
+          344
+        ],
+        "conf": 0.852993905544281,
+        "label": "SafetySwitchPanel"
+      },
+      {
+        "bbox": [
+          662,
+          0,
+          783,
+          305
+        ],
+        "conf": 0.25642937421798706,
+        "label": "NitrogenTank"
+      }
+    ],
+    "count": 2
+  }
+]
